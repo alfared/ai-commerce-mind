@@ -1,0 +1,91 @@
+[project]
+name = "ai-commerce-mind"
+version = "0.1.0"
+description = "Production-grade AI-first e-commerce platform"
+readme = "README.md"
+authors = [
+    { name = "Vitaliy.Holovka", email = "alfared3006@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.19.2",
+    "asyncpg>=0.31.0",
+    "fastapi>=0.141.1",
+    "pgvector>=0.5.0",
+    "psycopg[binary]>=3.3.5",
+    "pydantic-settings>=2.15.0",
+    "redis>=8.1.0",
+    "sqlalchemy[asyncio]>=2.0.52,<2.1",
+    "structlog>=26.1.0",
+    "uvicorn[standard]>=0.52.4",
+]
+
+[project.scripts]
+ai-commerce-mind = "ai_commerce_mind:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pyright>=1.1.414",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.16.7",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+    "ASYNC",
+    "C4",
+    "SIM",
+    "RUF",
+]
+
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+
+include = [
+    "src",
+    "tests",
+]
+
+exclude = [
+    ".venv",
+    "alembic/versions",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["src/ai_commerce_mind"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80
