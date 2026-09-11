@@ -1580,26 +1580,6 @@ GET /api/v1/health
 
 ---
 
-# Project Status
-
-Current phase:
-
-```text
-ACM-002 — Repository Bootstrap
-```
-
-Next milestones:
-
-```text
-ACM-003 Application Core
-ACM-004 PostgreSQL Foundation
-ACM-005 Alembic
-ACM-006 Shared Database Models
-ACM-007 Redis Infrastructure
-```
-
----
-
 # License
 
 License will be selected later.
