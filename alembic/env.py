@@ -4,6 +4,7 @@ from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
+import ai_commerce_mind.db.models  # noqa: F401
 from ai_commerce_mind.core.config import get_settings
 from ai_commerce_mind.db.base import Base
 
