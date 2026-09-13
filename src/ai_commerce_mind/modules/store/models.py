@@ -9,6 +9,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from ai_commerce_mind.db.base import BaseModel
 
 if TYPE_CHECKING:
+    from ai_commerce_mind.modules.category.models import Category
     from ai_commerce_mind.modules.organization.models import Organization
 
 
@@ -48,4 +49,9 @@ class Store(BaseModel):
 
     organization: Mapped[Organization] = relationship(
         back_populates="stores",
+    )
+
+    categories: Mapped[list[Category]] = relationship(
+        back_populates="store",
+        cascade="all, delete-orphan",
     )

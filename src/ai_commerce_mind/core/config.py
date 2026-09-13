@@ -13,6 +13,11 @@ class Settings(BaseSettings):
         "postgresql+asyncpg://ai_commerce_mind:ai_commerce_mind@localhost:5432/ai_commerce_mind"
     )
 
+    test_database_url: str = (
+        "postgresql+asyncpg://ai_commerce_mind:ai_commerce_mind"
+        "@localhost:5432/ai_commerce_mind_test"
+    )
+
     redis_url: str = "redis://localhost:6379/0"
 
     openai_api_key: str | None = None
